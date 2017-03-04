@@ -5,18 +5,19 @@
   <script src="bower_components/angular-resource/angular-resource.js"></script>
 
   <script src="app.js"></script>
-
+  <script src="app.config.js"></script>
 
   <script src="core/beer/beer.module.js"></script>
   <script src="core/beer/beer.service.js"></script>
-
   <script src="beer-list/beer-list.module.js"></script>
   <script src="beer-list/beer-list.component.js"></script>
+  <script src="beer-detail/beer-detail.module.js"></script>
+  <script src="beer-detail/beer-detail.component.js"></script>
 </head>
 <body>
 
 <div>
-  <beer-list></beer-list>
+  <div ng-view>
 </div>
 
 </body>
