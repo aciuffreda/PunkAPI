@@ -3,10 +3,10 @@
       <tr ng-repeat="x in $ctrl.beerDetails">
          <td>{{ x.id }}</td>
          <td>{{ x.description }}</td>
-         <!--<td><button ng-click="$ctrl.getBeerDetails(x.id)">-->
-            <!--Back to Results-->
-         <!--</button>-->
-         <!--</td>-->
+         <td><button ng-click="$ctrl.goBackToResults()">
+            Back to Results
+         </button>
+         </td>
       </tr>
    </table>
 </div>

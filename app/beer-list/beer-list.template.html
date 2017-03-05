@@ -1,17 +1,17 @@
-<div>
-    <table>
-        <tr ng-repeat="x in $ctrl.beers">
-            <td>{{ x.id }}</td>
-            <td>{{ x.name }}</td>
-            <td>{{ x.tagline }}</td>
-            <td>{{ x.first_brewed }}</td>
-            <td>{{ x.abv }}</td>
-            <td>{{ x.ibu }}</td>
-            <td>
-                <button ng-click="$ctrl.getBeerDetails(x.id)">
-                    Details
-                </button>
-            </td>
-        </tr>
-    </table>
+    <div class="panel panel-default" style="margin-top: 20px; max-width:800px; margin-left:auto; margin-right:auto;">
+        <table ng-table="vm.tableParams" class="table table-bordered table-striped">
+            <tr ng-repeat="x in $ctrl.currentPageBeers">
+                <td title="'ID'" >{{ x.id }}</td>
+                <td>{{ x.name }}</td>
+                <td>{{ x.tagline }}</td>
+                <td>{{ x.first_brewed }}</td>
+                <td>{{ x.abv }}</td>
+                <td>{{ x.ibu }}</td>
+                <td>
+                    <button ng-click="$ctrl.goToBeerDetailsPage(x.id)">
+                        Details
+                    </button>
+                </td>
+            </tr>
+        </table>
 </div>
