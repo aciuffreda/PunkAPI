@@ -5,15 +5,17 @@ module('beerList')
   controller: ['Beer','$scope', '$location', '$uibModal',
     function BeerListController(Beer, $scope, $location, $uibModal) {
 
-      this.allBeersRetrieved = (index, before) => {
+      this.allBeersRetrieved = (index, before, filterParams) => {
         let allBeers = before;
-        Beer.query({
-          page: index,
-          per_page: 80,
-        }).$promise.then(data => {
+        console.log(filterParams);
+
+        const params = Object.assign({},
+          { page: index, per_page: 80 },
+          filterParams);
+        Beer.query(params).$promise.then(data => {
           if (data.length > 0) {
             allBeers.push(...data);
-            return this.allBeersRetrieved(index+1, allBeers);
+            return this.allBeersRetrieved(index+1, allBeers, filterParams);
           } else {
             return allBeers;
           }
@@ -21,14 +23,21 @@ module('beerList')
         return allBeers;
       };
 
-      this.currentPageBeers = this.allBeersRetrieved(1,[]);
-      // var promised = Beer.query().$promise.then(function (validated) {
-      //   return this.currentPageBeers = Array.from(validated);
-      // });
-      // console.log(this.currentPageBeers);
-      // this.currentPageBeers = Array.from(this.allBeersRetrieved(1,[]));
+      this.getBeers = () => {
+       const filterParams = {};
+       console.log($scope.minAbv);
+       console.log($scope.maxAbv);
+       console.log($scope.minIbu);
+       console.log($scope.maxIbu);
 
-      this.showDetails = function (beerSelected) {
+       if($scope.minAbv != null) filterParams.abv_lt = $scope.minAbv;
+       if($scope.maxAbv != null) filterParams.abv_gt = $scope.maxAbv;
+       if($scope.minIbu != null) filterParams.ibu_lt = $scope.minIbu;
+       if($scope.maxIbu != null) filterParams.ibu_gt = $scope.maxIbu;
+       this.currentPageBeers = this.allBeersRetrieved(1,[], filterParams);
+      };
+
+      this.showDetails = (beerSelected) => {
         $uibModal.open({
           templateUrl: '/beer-list/beer-list.details-template.html',
           controller: ($uibModalInstance, $scope) => {
@@ -38,6 +47,7 @@ module('beerList')
             $scope.beer = beerSelected;
           }
         });
-      };
+      }
+
   }]
 });

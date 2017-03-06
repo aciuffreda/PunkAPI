@@ -1,27 +1,58 @@
-<div class="panel panel-default" style="margin-top: 20px; max-width:1000px; margin-left:auto; margin-right:auto;">
-    <table st-table="currentPageBeers" class="table table-striped">
+<div id="main-panel" class="panel panel-default" style="margin-top: 20px; max-width:1000px; margin-left:auto; margin-right:auto;">
+
+    <div class="row">
+        <div class="col-md-8">
+            <h1>PUNK IPA</h1>
+        </div>
+        <div id='button-container' class="col-md-4">
+            <button class="btn btn-primary btn-lg" ng-click="$ctrl.getBeers()">
+            Get the Beers!
+            </button>
+        </div>
+    </div>
+
+    <uib-accordion id="accordion-filters">
+        <div uib-accordion-group class="panel-default" ng-init="status = {isOpen: false}" is-open="status.isOpen">
+            <uib-accordion-heading is-open="status.open">
+                Search Filters
+                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isOpen, 'glyphicon-chevron-right': !status.isOpen}"></i>
+            </uib-accordion-heading>
+            <div>
+                <label>Filter beers with ABV higher than:</label>
+                <input type="number" min=0 ng-model="maxAbv">
+                <label>and less than:</label>
+                <input type="number" min=0 ng-model="minAbv">
+            </div>
+            <div>
+                <label>Filter beers with IBU higher than:</label>
+                <input type="number" min=0 ng-model="minIbu">
+                <label> and less than:</label>
+                <input type="number" min=0 ng-model="maxIbu" >
+            </div>
+        </div>
+    </uib-accordion>
+
+    <table id="results-table" ng-show="$ctrl.currentPageBeers.length" st-table="currentPageBeers" class="table table-striped">
         <thead>
         <tr>
             <th st-sort="id">ID</th>
             <th st-sort="name">Name</th>
-            <th>Tag Line</th>
-            <th>ABV</th>
+            <th>ABV (%)</th>
             <th>IBU</th>
             <th>First day of Brewing</th>
             <th>Target FG</th>
             <th>Target OG</th>
             <th>EBC</th>
             <th>SRM</th>
-            <th>First day of Brewing</th>
             <th>PH</th>
             <th>Attenuation Level</th>
+            <th/>
         </tr>
         </thead>
 
         <tr ng-repeat="x in $ctrl.currentPageBeers">
             <td>{{ x.id }}</td>
             <td>{{ x.name }}</td>
-            <td>{{ x.tagline }}</td>
             <td>{{ x.abv }}</td>
             <td>{{ x.ibu }}</td>
             <td>{{ x.first_brewed }}</td>
@@ -32,17 +63,10 @@
             <td>{{ x.ph }}</td>
             <td>{{ x.attenuation_level }}</td>
               <td>
-                <button ng-click="$ctrl.showDetails(x)">
+                <button class="btn btn-info btn-sm" ng-click="$ctrl.showDetails(x)">
                  Details
                 </button>
               </td>
         </tr>
-        <tfoot>
-        <tr>
-            <td colspan="5" class="text-center">
-                <div st-pagination="" st-items-by-page="20" st-displayed-pages="5"></div>
-            </td>
-        </tr>
-        </tfoot>
     </table>
 </div>

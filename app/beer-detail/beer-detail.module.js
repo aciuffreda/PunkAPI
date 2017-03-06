@@ -1,4 +1,4 @@
 angular.module('beerDetail', [
   'ngRoute',
-  'core.beer'
+  'core.beer',
 ]);

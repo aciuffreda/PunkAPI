@@ -5,6 +5,5 @@ angular.module('punkAPI', [
   'ngAnimate',
   'smart-table',
   'beerList',
-  'beerDetail',
   'ui.bootstrap',
 ]);
