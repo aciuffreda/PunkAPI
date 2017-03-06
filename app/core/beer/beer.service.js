@@ -9,6 +9,7 @@ factory('Beer', ['$resource',
         //params: {page: 1, per_page: 80},
         isArray: true
       },
+      //todo:delete this
       getBeerDetails: {
         method: 'GET',
         isArray: true

@@ -4,15 +4,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
-
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
-
-  <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
 
   <script src="app.js"></script>
   <script src="app.config.js"></script>
@@ -22,6 +20,9 @@
   <script src="beer-list/beer-list.component.js"></script>
   <script src="beer-detail/beer-detail.module.js"></script>
   <script src="beer-detail/beer-detail.component.js"></script>
+  <script src="beer-list/beer-list.details-controller.js"></script>
+
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <title>Punk API Beer List</title>
 
@@ -29,8 +30,9 @@
 <body>
 
 <div>
-  <div ng-view>
-</div>
+  <div ng-view >
+    <div ng-include="'/beer-list/beer-list.details-template.html'"></div>
+  </div>
 
 </body>
 </html>

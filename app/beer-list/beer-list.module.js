@@ -1,1 +1,1 @@
-angular.module('beerList',  ['core.beer']);
+angular.module('beerList', ['core.beer', 'ui.bootstrap']);

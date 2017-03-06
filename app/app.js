@@ -3,7 +3,8 @@
 angular.module('punkAPI', [
   'ngRoute',
   'ngAnimate',
-  'ngTable',
+  'smart-table',
   'beerList',
-  'beerDetail'
+  'beerDetail',
+  'ui.bootstrap',
 ]);

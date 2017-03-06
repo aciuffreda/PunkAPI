@@ -1,17 +1,48 @@
-    <div class="panel panel-default" style="margin-top: 20px; max-width:800px; margin-left:auto; margin-right:auto;">
-        <table ng-table="vm.tableParams" class="table table-bordered table-striped">
-            <tr ng-repeat="x in $ctrl.currentPageBeers">
-                <td title="'ID'" >{{ x.id }}</td>
-                <td>{{ x.name }}</td>
-                <td>{{ x.tagline }}</td>
-                <td>{{ x.first_brewed }}</td>
-                <td>{{ x.abv }}</td>
-                <td>{{ x.ibu }}</td>
-                <td>
-                    <button ng-click="$ctrl.goToBeerDetailsPage(x.id)">
-                        Details
-                    </button>
-                </td>
-            </tr>
-        </table>
+<div class="panel panel-default" style="margin-top: 20px; max-width:1000px; margin-left:auto; margin-right:auto;">
+    <table st-table="currentPageBeers" class="table table-striped">
+        <thead>
+        <tr>
+            <th st-sort="id">ID</th>
+            <th st-sort="name">Name</th>
+            <th>Tag Line</th>
+            <th>ABV</th>
+            <th>IBU</th>
+            <th>First day of Brewing</th>
+            <th>Target FG</th>
+            <th>Target OG</th>
+            <th>EBC</th>
+            <th>SRM</th>
+            <th>First day of Brewing</th>
+            <th>PH</th>
+            <th>Attenuation Level</th>
+        </tr>
+        </thead>
+
+        <tr ng-repeat="x in $ctrl.currentPageBeers">
+            <td>{{ x.id }}</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.tagline }}</td>
+            <td>{{ x.abv }}</td>
+            <td>{{ x.ibu }}</td>
+            <td>{{ x.first_brewed }}</td>
+            <td>{{ x.target_fg }}</td>
+            <td>{{ x.target_og }}</td>
+            <td>{{ x.ebc }}</td>
+            <td>{{ x.srm }}</td>
+            <td>{{ x.ph }}</td>
+            <td>{{ x.attenuation_level }}</td>
+              <td>
+                <button ng-click="$ctrl.showDetails(x)">
+                 Details
+                </button>
+              </td>
+        </tr>
+        <tfoot>
+        <tr>
+            <td colspan="5" class="text-center">
+                <div st-pagination="" st-items-by-page="20" st-displayed-pages="5"></div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
 </div>
