@@ -23,9 +23,9 @@ module('beerList')
         return allBeers;
       };
 
-      this.getBeers = () => {
+      $scope.getBeers = () => {
        const filterParams = {};
-       console.log($scope.minAbv);
+       console.log($scope);
        console.log($scope.maxAbv);
        console.log($scope.minIbu);
        console.log($scope.maxIbu);
@@ -34,10 +34,10 @@ module('beerList')
        if($scope.maxAbv != null) filterParams.abv_gt = $scope.maxAbv;
        if($scope.minIbu != null) filterParams.ibu_lt = $scope.minIbu;
        if($scope.maxIbu != null) filterParams.ibu_gt = $scope.maxIbu;
-       this.currentPageBeers = this.allBeersRetrieved(1,[], filterParams);
+        $scope.currentPageBeers = this.allBeersRetrieved(1,[], filterParams);
       };
 
-      this.showDetails = (beerSelected) => {
+      $scope.showDetails = (beerSelected) => {
         $uibModal.open({
           templateUrl: '/beer-list/beer-list.details-template.html',
           controller: ($uibModalInstance, $scope) => {
