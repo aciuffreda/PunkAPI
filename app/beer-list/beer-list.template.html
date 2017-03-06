@@ -1,35 +1,33 @@
-<div class="panel panel-default" style="margin-top: 20px; max-width:1000px; margin-left:auto; margin-right:auto;">
+<div id="main-panel" class="panel panel-default">
 
-    <div class="row">
-        <div class="col-md-8">
-            <h1>PUNK IPA</h1>
-        </div>
-        <div id='button-container' class="col-md-4">
-            <button class="btn btn-primary btn-lg" ng-click="getBeers()">
-            Get the Beers!
-            </button>
-        </div>
+    <div id="header-title">
+        <h1>PUNK IPA</h1>
     </div>
-    <uib-accordion id="accordion-filters">
-        <div uib-accordion-group class="panel-default" ng-init="status = {isOpen: false}" is-open="status.isOpen">
-            <uib-accordion-heading is-open="status.open">
-                Search Filters
-                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isOpen, 'glyphicon-chevron-right': !status.isOpen}"></i>
-            </uib-accordion-heading>
-            <div>
+
+    <div id="filters-panel" class="panel">
+        <div class="row">
+            <div class="col-md-7">
+            <div class="filter-div">
                 <label>Filter beers with ABV higher than:</label>
                 <input type="number" min=0 ng-model="maxAbv">
                 <label>and less than:</label>
                 <input type="number" min=0 ng-model="minAbv">
             </div>
-            <div>
+            <div class="filter-div">
                 <label>Filter beers with IBU higher than:</label>
-                <input type="number" min=0 ng-model="minIbu">
+                <input type="number" min=0 ng-model="maxIbu">
                 <label> and less than:</label>
-                <input type="number" min=0 ng-model="maxIbu" >
+                <input type="number" min=0 ng-model="minIbu" >
+            </div>
+            </div>
+            <div class="col-md-5" id='button-container'>
+                <button class="btn btn-primary btn-lg" ng-click="getBeers()">
+                    Get the Beers!
+                </button>
             </div>
         </div>
-    </uib-accordion>
+
+        </div>
 
     <table id="results-table" ng-show="currentPageBeers.length" st-table="currentPageBeers" class="table table-striped">
         <thead>

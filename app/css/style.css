@@ -1,35 +1,48 @@
-#accordion-filters .panel-title{
-    font-size: 12px;
-    font-weight: bold;
-}
-
-#accordion-filters .panel-body{
-    font-size: 12px;
-    font-weight: normal;
-}
-
-#accordion-filters .panel-heading{
-    padding: 8px;
-    background-color: #ffffff;
-}
-
-#accordion-filters input{
-    width: 60px;
-}
-
 #button-container {
     vertical-align: bottom !important;
 }
 
 #button-container button{
-    margin-top: 30px;
-    margin-bottom: 12px;
-    float: right;
+    float: left;
     vertical-align: bottom;
+}
+
+#filters-panel{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#filters-panel label{
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#filters-panel input{
+    width: 60px;
+}
+
+.filter-div {
+    float:right;
+}
+
+#header-title{
+    align-items: center;
+}
+
+h1{
+    font-size:50px;
+    font-weight: bolder;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #main-panel{
     padding: 10px;
+    margin-top: 20px;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 #results-table tr {
@@ -39,13 +52,4 @@
 #results-table td {
     vertical-align: middle;
     background-color: #ffffff;
-}
-
-.row {
-    vertical-align: bottom;
-}
-
-.row h1{
-    font-size:50px;
-    font-weight: bolder;
 }
