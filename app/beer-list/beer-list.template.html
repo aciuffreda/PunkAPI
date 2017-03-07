@@ -9,15 +9,15 @@
             <div class="col-md-7">
             <div class="filter-div">
                 <label>Filter beers with ABV higher than:</label>
-                <input type="number" min=0 ng-model="maxAbv">
+                <input type="number" min=2 max=12 ng-model="maxAbv">
                 <label>and less than:</label>
-                <input type="number" min=0 ng-model="minAbv">
+                <input type="number" min=2 max=12 ng-model="minAbv">
             </div>
             <div class="filter-div">
                 <label>Filter beers with IBU higher than:</label>
-                <input type="number" min=0 ng-model="maxIbu">
+                <input type="number" min=0 max=100 ng-model="maxIbu">
                 <label> and less than:</label>
-                <input type="number" min=0 ng-model="minIbu" >
+                <input type="number" min=0 max=100 ng-model="minIbu" >
             </div>
             </div>
             <div class="col-md-5" id='button-container'>

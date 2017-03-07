@@ -5,6 +5,11 @@ module('beerList')
   controller: ['Beer','$scope', '$location', '$uibModal',
     function BeerListController(Beer, $scope, $location, $uibModal) {
 
+      $scope.maxAbv = 2;
+      $scope.minAbv = 12;
+      $scope.maxIbu = 0;
+      $scope.minIbu = 100;
+
       this.allBeersRetrieved = (index, before, filterParams) => {
         let allBeers = before;
         console.log(filterParams);
@@ -25,16 +30,12 @@ module('beerList')
 
       $scope.getBeers = () => {
        const filterParams = {};
-       console.log($scope);
-       console.log($scope.maxAbv);
-       console.log($scope.minIbu);
-       console.log($scope.maxIbu);
+       filterParams.abv_lt = $scope.minAbv;
+       filterParams.abv_gt = $scope.maxAbv;
+       filterParams.ibu_lt = $scope.minIbu;
+       filterParams.ibu_gt = $scope.maxIbu;
 
-       if($scope.minAbv != null) filterParams.abv_lt = $scope.minAbv;
-       if($scope.maxAbv != null) filterParams.abv_gt = $scope.maxAbv;
-       if($scope.minIbu != null) filterParams.ibu_lt = $scope.minIbu;
-       if($scope.maxIbu != null) filterParams.ibu_gt = $scope.maxIbu;
-        $scope.currentPageBeers = this.allBeersRetrieved(1,[], filterParams);
+       $scope.currentPageBeers = this.allBeersRetrieved(1,[], filterParams);
       };
 
       $scope.showDetails = (beerSelected) => {
@@ -48,6 +49,5 @@ module('beerList')
           }
         });
       }
-
   }]
 });
