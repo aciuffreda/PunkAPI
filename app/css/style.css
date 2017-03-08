@@ -11,6 +11,7 @@
     font-size: 12px;
     font-weight: bold;
     text-align: right;
+    padding-right: 0px;
 }
 
 .details-info-content {
@@ -18,6 +19,7 @@
     font-weight: normal;
     text-align: left;
     overflow-wrap:break-word;
+    word-wrap: break-word;
 }
 
 #filters-panel{
@@ -51,8 +53,9 @@ h1{
 }
 
 #img-beer {
-    height: 200px;
-    width: 70px;
+    height: 100%;
+    width: 100%;
+    margin: 10px;
 }
 
 #main-panel{

@@ -46,7 +46,7 @@ module('beerList')
             $scope.beer = beerSelected;
             $scope.foodPairings = beerSelected.food_pairing.join(", ");
             $scope.allIngredients = this.getFormattedIngredients(beerSelected.ingredients);
-            console.log($scope.allIngredients)
+            $scope.method = this.getFormattedMethod(beerSelected.method);
           }
         });
       };
@@ -57,14 +57,35 @@ module('beerList')
           if(Array.isArray(ingredients[key])){
             for(let ingredient of ingredients[key]){
               listOfIngredients.push(
-                `${ingredient.name} ${key} (${ingredient.amount.value} ${ingredient.amount.unit})`
-                  );
+                `- ${ingredient.name} ${key} (${ingredient.amount.value} ${ingredient.amount.unit})`
+                  .concat(ingredient.add != undefined ? ', added in the '+ingredient.add:'',
+                    ingredient.attribute != undefined ? ', attribute: '+ingredient.attribute:'','.')
+              );
             };
           }else{
-            listOfIngredients.push(`${ingredients[key]} ${key}`);
+            listOfIngredients.push(`- ${ingredients[key]} ${key}.`);
           }
         });
         return listOfIngredients;
+      };
+
+      this.getFormattedMethod = (method) => {
+        const listOfMethodProcedures = [];
+        Object.keys(method).forEach(key => {
+          if(Array.isArray(method[key])){
+            console.log(method[key]);
+            for(let methodProcedure of method[key]){
+              listOfMethodProcedures.push(
+                `- ${key} at ${methodProcedure.temp.value} ${methodProcedure.temp.unit} `
+                  .concat(methodProcedure.duration != undefined ? 'for '+methodProcedure.duration +' min.' : '.')
+              );
+            };
+          }else{
+            listOfMethodProcedures.push(`- ${key}.`);
+          }
+
+        });
+        return listOfMethodProcedures;
       };
   }]
 });
