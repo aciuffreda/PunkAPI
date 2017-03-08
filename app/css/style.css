@@ -7,6 +7,19 @@
     vertical-align: bottom;
 }
 
+.details-info-title {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.details-info-content {
+    font-size: 12px;
+    font-weight: normal;
+    text-align: left;
+    overflow-wrap:break-word;
+}
+
 #filters-panel{
     padding-top: 10px;
     padding-bottom: 10px;
@@ -37,12 +50,22 @@ h1{
     margin-right: auto;
 }
 
+#img-beer {
+    height: 200px;
+    width: 70px;
+}
+
 #main-panel{
     padding: 10px;
     margin-top: 20px;
     max-width:1000px;
     margin-left:auto;
     margin-right:auto;
+}
+
+.modal-dialog {
+    width: 75%;
+    height: 70%;
 }
 
 #results-table tr {

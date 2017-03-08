@@ -12,8 +12,6 @@ module('beerList')
 
       this.allBeersRetrieved = (index, before, filterParams) => {
         let allBeers = before;
-        console.log(filterParams);
-
         const params = Object.assign({},
           { page: index, per_page: 80 },
           filterParams);
@@ -46,8 +44,27 @@ module('beerList')
               $uibModalInstance.close();
             };
             $scope.beer = beerSelected;
+            $scope.foodPairings = beerSelected.food_pairing.join(", ");
+            $scope.allIngredients = this.getFormattedIngredients(beerSelected.ingredients);
+            console.log($scope.allIngredients)
           }
         });
-      }
+      };
+
+      this.getFormattedIngredients = (ingredients) => {
+        const listOfIngredients = [];
+        Object.keys(ingredients).forEach(key => {
+          if(Array.isArray(ingredients[key])){
+            for(let ingredient of ingredients[key]){
+              listOfIngredients.push(
+                `${ingredient.name} ${key} (${ingredient.amount.value} ${ingredient.amount.unit})`
+                  );
+            };
+          }else{
+            listOfIngredients.push(`${ingredients[key]} ${key}`);
+          }
+        });
+        return listOfIngredients;
+      };
   }]
 });

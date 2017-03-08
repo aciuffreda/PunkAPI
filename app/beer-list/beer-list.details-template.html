@@ -1,13 +1,87 @@
 <div>
     <script type="text/ng-template" id="/beer-list/beer-list.details-template.html">
-            <div class="modal-header">
-                <h3 class="modal-title">{{beer.name}}</h3>
+        <div class="modal-header">
+            <h3 class="modal-title">{{beer.name}}</h3>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1">
+                        <img src={{beer.image_url}} id="img-beer">
+                    </div>
+                    <div class="col-md-11">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-2 details-info-title">
+                                    <label>Description:</label>
+                                </div>
+                                <div class="col-md-10 details-info-content">
+                                    <p>
+                                        {{beer.description}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 details-info-title">
+                                    <label>Volume:</label>
+                                </div>
+                                <div class="col-md-10 details-info-content">
+                                    <p>{{beer.volume.value}} {{beer.volume.litres}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 details-info-title">
+                                    <label>Boil Volume:</label>
+                                </div>
+                                <div class="col-md-10 details-info-content">
+                                    <p>{{beer.boil_volume.value}} {{beer.boil_volume.unit}}</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2 details-info-title">
+                                    <label>Ingredients:</label>
+                                </div>
+                                <div class="col-md-10 details-info-content">
+                                    <div ng-repeat="ingredient in allIngredients">
+                                        {{ingredient}}
+                                    </div>
+                                    {{ingredients}}
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-2 details-info-title">
+                                    <label>Food Pairing:</label>
+                                </div>
+                                <div class="col-md-10 details-info-content">
+                                    <p>{{foodPairings}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 details-info-title">
+                                    <label>Brewer's tips:</label>
+                                </div>
+                                <div class="col-md-10 details-info-content">
+                                    <p>{{beer.brewers_tips}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 details-info-title">
+                                    <label>Contributed by:</label>
+                                </div>
+                                <div class="col-md-10 details-info-content">
+                                    <p>{{beer.contributed_by}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                Modal content
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" ng-click="ok()">Close</button>
-            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">Close</button>
+        </div>
     </script>
 </div>
