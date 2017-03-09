@@ -27,12 +27,16 @@ module('beerList')
       };
 
       $scope.getBeers = () => {
-       const filterParams = {};
-       filterParams.abv_lt = $scope.minAbv;
-       filterParams.abv_gt = $scope.maxAbv;
-       filterParams.ibu_lt = $scope.minIbu;
-       filterParams.ibu_gt = $scope.maxIbu;
-       $scope.currentPageBeers = this.allBeersRetrieved(1,[], filterParams);
+        const filterParams = {};
+        filterParams.abv_lt = $scope.minAbv;
+        filterParams.abv_gt = $scope.maxAbv;
+
+        if($scope.checked){
+          filterParams.ibu_lt = $scope.minIbu;
+          filterParams.ibu_gt = $scope.maxIbu;
+        }
+
+        $scope.currentPageBeers = this.allBeersRetrieved(1,[], filterParams);
       };
 
       $scope.showDetails = (beerSelected) => {

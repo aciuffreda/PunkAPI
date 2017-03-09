@@ -6,25 +6,26 @@
 
     <div id="filters-panel" class="panel">
         <div class="row">
-            <div class="col-md-7">
-            <div class="filter-div">
-                <label>Filter beers with ABV higher than:</label>
-                <input type="number" min=2 max=12 ng-model="maxAbv">
-                <label>and less than:</label>
-                <input type="number" min=2 max=12 ng-model="minAbv">
-            </div>
-            <div class="filter-div">
-                <label>Filter beers with IBU higher than:</label>
-                <input type="number" min=0 max=100 ng-model="maxIbu">
-                <label> and less than:</label>
-                <input type="number" min=0 max=100 ng-model="minIbu" >
-            </div>
-            </div>
-            <div class="col-md-5" id='button-container'>
-                <button class="btn btn-primary btn-lg" ng-click="getBeers()">
-                    Get the Beers!
-                </button>
-            </div>
+            <div class="col-sm-7">
+                <div class="filter-div">
+                    <label>Filter beers with ABV higher than:</label>
+                    <input type="number" min=2 max=12 ng-model="maxAbv">
+                    <label>and less than:</label>
+                    <input type="number" min=2 max=12 ng-model="minAbv">
+                </div>
+                <div class="filter-div">
+                    <input type="checkbox" ng-model="checked">
+                    <label>Filter beers with IBU higher than:</label>
+                    <input type="number" min=0 max=100 ng-model="maxIbu" ng-disabled="!checked">
+                    <label> and less than:</label>
+                    <input type="number" min=0 max=100 ng-model="minIbu" ng-disabled="!checked">
+                </div>
+                </div>
+                <div class="col-sm-5" id='button-container'>
+                    <button class="btn btn-primary btn-lg" ng-click="getBeers()">
+                        Get the Beers!
+                    </button>
+                </div>
         </div>
 
         </div>
