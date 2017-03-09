@@ -14,11 +14,15 @@
 
   <script src="app.js"></script>
   <script src="app.config.js"></script>
-  <script src="core/beer/beer.module.js"></script>
-  <script src="core/beer/beer.service.js"></script>
+  <script src="core/beer-retriever/beer-retriever.module.js"></script>
+  <script src="core/beer-retriever/beer-retriever.service.js"></script>
+  <script src="core/beer-selection/beer-selection.module.js"></script>
+  <script src="core/beer-selection/beer-selection.service.js"></script>
 
   <script src="beer-list/beer-list.module.js"></script>
   <script src="beer-list/beer-list.component.js"></script>
+  <script src="beer-detail/beer-detail.module.js"></script>
+  <script src="beer-detail/beer-detail.component.js"></script>
 
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -29,7 +33,7 @@
 <body>
 
   <div ng-view >
-    <div ng-include="'/beer-list/beer-list.details-template.html'"></div>
+    <div ng-include="'/beer-detail/beer-detail.template.html'"></div>
   </div>
 
 </body>

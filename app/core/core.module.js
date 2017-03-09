@@ -1,1 +1,1 @@
-angular.module('core', ['core.beer']);
+angular.module('core', ['core.beer-retriever, core.beer-selection']);

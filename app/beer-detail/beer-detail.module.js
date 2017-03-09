@@ -1,4 +1,1 @@
-angular.module('beerDetail', [
-  'ngRoute',
-  'core.beer',
-]);
+angular.module('beerDetail', ['core.beer-selection', 'ui.bootstrap']);
