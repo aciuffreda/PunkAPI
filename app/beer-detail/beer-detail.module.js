@@ -1,1 +1,0 @@
-angular.module('beerDetail', ['core.beer-selection', 'ui.bootstrap']);

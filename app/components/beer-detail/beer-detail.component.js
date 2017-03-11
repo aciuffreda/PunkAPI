@@ -1,7 +1,7 @@
 angular.
 module('beerDetail').
 component('beerDetail', {
-  templateUrl: '/beer-detail/beer-detail.template.html',
+  templateUrl: '/components/beer-detail/beer-detail.template.html',
   controller: ['BeerSelection', '$scope', '$rootScope',
     function BeerDetailController(BeerSelection, $scope, $rootScope) {
 
