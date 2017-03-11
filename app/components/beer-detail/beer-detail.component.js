@@ -29,18 +29,25 @@ component('beerDetail', {
         return listOfIngredients;
       };
 
+
       this.getFormattedMethod = (method) => {
         const listOfMethodProcedures = [];
+        console.log(Object.keys(method));
         Object.keys(method).forEach(key => {
-          if(Array.isArray(method[key])){
-            for(let methodProcedure of method[key]){
+          switch (key){
+            case 'mash_temp': for(let methodProcedure of method[key]){
               listOfMethodProcedures.push(
                 `- ${key} at ${methodProcedure.temp.value} ${methodProcedure.temp.unit} `
                   .concat(methodProcedure.duration != undefined ? 'for '+methodProcedure.duration +' min.' : '.')
               );
             }
-          }else{
-            listOfMethodProcedures.push(`- ${key}.`);
+            break;
+            case 'fermentation':
+              listOfMethodProcedures.push(
+                `- ${key} at ${method[key].temp.value} ${method[key].temp.unit}.`
+              );
+              break;
+            default:  listOfMethodProcedures.push(`- ${key} ${method[key] != null ? ': '+method[key] : ''}. `);
           }
         });
         return listOfMethodProcedures;
