@@ -1,8 +1,6 @@
 angular.
-module('beerList')
-  .component('beerList', {
-  templateUrl: '/components/beer-list/beer-list.template.html',
-  controller: ['Beer', 'BeerSelection', '$scope', '$location', '$uibModal', '$rootScope',
+module('beerList').
+  controller('BeerListController', ['Beer', 'BeerSelection', '$scope', '$location', '$uibModal', '$rootScope',
     function BeerListController(Beer, BeerSelection, $scope, $location, $uibModal, $rootScope) {
 
       $scope.maxAbv = 2;
@@ -48,5 +46,8 @@ module('beerList')
           }
         });
       };
-  }]
+}]).
+component('beerList', {
+  templateUrl: '/components/beer-list/beer-list.template.html',
+  controller:'BeerListController',
 });
